@@ -1,0 +1,62 @@
+---
+title: "Flex Dashboard Test 2.12.25"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+```
+
+Row {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+pl1<- ggplot(mpg, aes(displ, hwy))+
+  geom_point(aes(color=factor(cyl)))+
+  geom_smooth()
+pl1
+
+```
+
+Row {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+pl2 <- ggplot(mpg, aes(factor(cyl), hwy))+
+  geom_boxplot(aes(fill=factor(cyl)))
+
+pl2
+
+```
+
+### Row C
+
+```{r}
+
+pl3<-ggplot(mpg, aes(year))+
+  geom_histogram(aes(fill=manufacturer))
+
+pl3
+```
+
+Row {data-width=500}
+-----------------------------------------------------------------------
+
+### Chart D
+
+```{r}
+pl4 <- ggplot(mpg, aes(factor(cyl), hwy))+
+  geom_boxplot(aes(fill=factor(cyl)))
+
+pl4
+
+```
+

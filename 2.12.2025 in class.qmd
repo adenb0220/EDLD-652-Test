@@ -1,0 +1,40 @@
+---
+title: "2.12.25 652 Class"
+format: html
+editor: visual
+---
+
+```{r}
+library(ragg)
+
+knitr::opts_chunk$set(dev = "ragg_png")
+
+library(patchwork)
+
+library(tidyverse)
+
+pl<- ggplot(mpg, aes(displ, hwy))+
+  geom_point(aes(color=factor(cyl)))+
+  geom_smooth()
+
+pl2 <- ggplot(mpg, aes(factor(cyl), hwy))+
+  geom_boxplot(aes(fill=factor(cyl)))
+
+pl + pl2 + plot_layout(guides = "collect")
+
+pl / pl2 + plot_layout(guides = "collect")
+
+glimpse(mpg)
+
+pl3<-ggplot(mpg, aes(year))+
+  geom_histogram(aes(fill=manufacturer))
+              
+pl + pl3 + pl2 + plot_layout()
+
+
+
+```
+
+```{r}
+library("flexdashboard")
+```
