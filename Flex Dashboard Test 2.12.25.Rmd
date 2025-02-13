@@ -2,7 +2,7 @@
 title: "Flex Dashboard Test 2.12.25"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: rows
+    orientation: columns
     vertical_layout: fill
 ---
 
